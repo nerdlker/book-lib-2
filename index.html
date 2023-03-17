@@ -18,26 +18,31 @@
         <button class="addbook">Add Book</button>
       </div>
 
-      <!-- CARD DESIGN -->
-      <div class="book-card-modal">
-        <label for="book-name-modal">Book Name: </label>
-        <input type="text" id="book-title" name="book-name-modal" />
-        <label for="book-author-modal">Author: </label>
-        <input type="text" id="book-author" name="book-author-modal" />
-        <label for="book-pages-modal"> Pages:</label>
-        <input type="number" name="book-pages-modal" />
-        <div class="checkbox-modal">
-          I have read this book
-          <label for="read-status-modal"></label>
-          <input type="checkbox" name="read-status-modal" />
-        </div>
-        <div class="submit-button-div">
-          <button class="submit-button">Add Book</button>
+      <!-- Modal DESIGN -->
+      <div class="my-modal">
+        <div class="book-card-modal">
+          <div class="top-banner">X</div>
+          <label for="book-name-modal">Book Name: </label>
+          <input type="text" id="book-title" name="book-name-modal" />
+          <label for="book-author-modal">Author: </label>
+          <input type="text" id="book-author" name="book-author-modal" />
+          <label for="book-pages-modal"> Pages:</label>
+          <input type="number" id="book-pages" name="book-pages-modal" />
+          <div class="checkbox-modal">
+            I have read this book
+            <label for="read-status-modal"></label>
+            <input type="checkbox" name="read-status-modal" id="isred" />
+          </div>
+          <div class="submit-button-div">
+            <button class="submit-button">Add Book</button>
+          </div>
         </div>
       </div>
-      <!-- END OF CARD DESIGN -->
+      <!-- END OF Modal DESIGN -->
 
+      <!-- BOOKS -->
       <div class="card-container">
+        <!-- BOOK
         <div class="card">
           <h3 class="book-title">Lord of the Rings</h3>
           <p>by</p>
@@ -45,6 +50,23 @@
           <p class="book-page">689 pages</p>
           <input type="checkbox" checked="true" />
         </div>
+
+        <div class="card">
+          <h3 class="book-title">Lord of the Rings</h3>
+          <p>by</p>
+          <p class="book-author">J.R.R Tolkien</p>
+          <p class="book-page">689 pages</p>
+          <input type="checkbox" checked="true" />
+        </div>
+
+        <div class="card">
+          <h3 class="book-title">Lord of the Rings</h3>
+          <p>by</p>
+          <p class="book-author">J.R.R Tolkien</p>
+          <p class="book-page">689 pages</p>
+          <input type="checkbox" checked="true" />
+        </div> -->
+        <!-- END OF BOOK -->
       </div>
     </div>
   </body>
