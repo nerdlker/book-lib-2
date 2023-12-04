@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
 /* Page Reset */
 * {
   margin: 0;
@@ -45,6 +47,8 @@ h1 {
   color: #002b5b;
   text-align: center;
   padding: 2rem;
+  font-family: "Amatic SC", cursive;
+  font-size: 3em;
 }
 
 /* buttons */
@@ -72,6 +76,10 @@ h1 {
   height: 48px;
 }
 
+.book-title {
+  font-family: "Amatic SC", cursive;
+  font-size: 2em;
+}
 .addbook:hover {
   color: #fff;
   background-color: #616467;
@@ -81,6 +89,22 @@ h1 {
   text-align: center;
   padding: 2rem;
 }
+
+.close-button {
+  border-radius: 8px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 11px;
+  background: #d93444;
+  padding: 5px 8px 5px 8px;
+  text-decoration: none;
+  border: none;
+}
+
+.close-button:hover {
+  background: #e81515;
+  text-decoration: none;
+}
 /* end of buttons  */
 
 /* CARD DESIGN */
@@ -88,7 +112,7 @@ h1 {
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   border: 0.1em solid black;
   border-radius: 5%;
@@ -166,9 +190,9 @@ body {
 }
 
 .has-read {
-  background-color: rgb(157, 241, 157);
+  background-color: rgb(98 205 255);
 }
 
-.has-not-red {
-  background-color: rgb(241, 157, 209);
+.has-not-read {
+  background-color: rgb(206 185 255);
 }

@@ -21,6 +21,12 @@ closeButton.onclick = function () {
 addBookBtn.onclick = function () {
   myModal.style.display = "block";
 };
+function addReadButtonEventListeners() {
+  const readButtons = document.querySelectorAll(".read-button");
+  readButtons.forEach((button) => {
+    button.addEventListener("click", changeColor);
+  });
+}
 
 let myLibrary = [
   {
@@ -67,30 +73,63 @@ function clearModal() {
 
 function displayBooks() {
   bookShelf.innerHTML = "";
-  for (let i = 0; i < myLibrary.length; i++) {
-    let newBook = document.createElement("div");
 
-    newBook.classList.add("card");
-    newBook.innerHTML = `    
-    <h3 class="book-title">${myLibrary[i].title}</h3>
-    <p>by</p>
-    <p class="book-author">${myLibrary[i].author}</p>
-    <p class="book-page"> ${myLibrary[i].pages} pages</p>
-    <div class="read-button"> ${checkStatus()} </div>`;
-
+  myLibrary.forEach((book) => {
+    const newBook = createBookElement(book);
     bookShelf.appendChild(newBook);
+  });
 
-    function checkStatus() {
-      if (myLibrary[i].isRead == true) {
-        ``;
-        return "read";
-      } else {
-        return "unread";
-      }
-    }
-  }
+  addReadButtonEventListeners();
+  colorMe();
 }
 
+function createBookElement(book) {
+  const newBook = document.createElement("div");
+  newBook.classList.add("card");
+  newBook.innerHTML = `
+        <h3 class="book-title">${book.title}</h3>
+        <p>by</p>
+        <p class="book-author">${book.author}</p>
+        <p class="book-page">${book.pages} pages</p>
+        <div class="read-button">${book.isRead ? "read" : "unread"}</div>
+        <button class="close-button" onclick="removeBook('${book.title}')">&#10006;</button>
+      `;
+  return newBook;
+}
+
+colorMe();
+
+//Toggles color;
+function changeColor(event) {
+  const targetButton = event.target;
+  targetButton.textContent = toggleReadStatus(targetButton.textContent.trim().toLowerCase());
+  colorMe();
+}
+
+function removeBook(title) {
+  myLibrary = myLibrary.filter((book) => book.title !== title);
+  displayBooks();
+}
+
+function toggleReadStatus(status) {
+  return status === "read" ? "unread" : "read";
+}
+// Checks status of book and adds button color.
+function colorMe() {
+  const readButtons = document.querySelectorAll(".read-button");
+  readButtons.forEach((button) => {
+    if (button.textContent === "read") {
+      button.classList.add("has-read");
+      button.classList.remove("has-not-read");
+    } else {
+      button.classList.add("has-not-read");
+      button.classList.remove("has-read");
+    }
+  });
+}
+//
+
 displayBooks();
+
 //Refactor code to clear Feilds on Addbook, Clear fields on Submit
 //Render Has to be writtern
