@@ -28,6 +28,7 @@ function addReadButtonEventListeners() {
   });
 }
 
+//Adding two books to test render the library
 let myLibrary = [
   {
     title: "Harry Potter",
@@ -43,6 +44,7 @@ let myLibrary = [
   },
 ];
 
+//Book object constructor
 function Book(title, author, pages, isRead) {
   this.title = title;
   this.author = author;
@@ -64,6 +66,7 @@ function addBookToLibrary() {
   displayBooks();
 }
 
+//Closes Modal
 function clearModal() {
   document.querySelector("#book-title").value = "";
   document.querySelector("#book-author").value = "";
@@ -71,6 +74,7 @@ function clearModal() {
   document.querySelector("#isred").checked = false;
 }
 
+//Renders the library
 function displayBooks() {
   bookShelf.innerHTML = "";
 
@@ -106,15 +110,16 @@ function changeColor(event) {
   colorMe();
 }
 
+function toggleReadStatus(status) {
+  return status === "read" ? "unread" : "read";
+}
+
+// Remove Book
+
 function removeBook(title) {
   myLibrary = myLibrary.filter((book) => book.title !== title);
   displayBooks();
 }
-
-function toggleReadStatus(status) {
-  return status === "read" ? "unread" : "read";
-}
-// Checks status of book and adds button color.
 function colorMe() {
   const readButtons = document.querySelectorAll(".read-button");
   readButtons.forEach((button) => {
@@ -127,9 +132,9 @@ function colorMe() {
     }
   });
 }
+
+// Checks status of book and adds button color.
+
 //
 
 displayBooks();
-
-//Refactor code to clear Feilds on Addbook, Clear fields on Submit
-//Render Has to be writtern
