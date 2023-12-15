@@ -45,12 +45,22 @@ let myLibrary = [
 ];
 
 //Book object constructor
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+//
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 }
+
+// function Book(title, author, pages, isRead) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.isRead = isRead;
+// }
 
 submitButton.onclick = addBookToLibrary;
 
@@ -120,6 +130,8 @@ function removeBook(title) {
   myLibrary = myLibrary.filter((book) => book.title !== title);
   displayBooks();
 }
+
+// Toggle read/unread
 function colorMe() {
   const readButtons = document.querySelectorAll(".read-button");
   readButtons.forEach((button) => {
